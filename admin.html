@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin Panel | Taste Bites</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header class="nav">
+            <a class="logo" href="index.html"><img class="logo-image" src="images/logo.png" alt="Taste Bites Logo">Taste<span>Bites</span></a>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="about.html">About</a>
+                <a href="reservations.html">Reservations</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="nav-right">
+                <a class="cart-link" href="cart.html">🛒 <span>Cart</span> <b id="cartCount">0</b></a>
+                <button class="theme" id="themeToggle">☾</button>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </header>
+        <main class="admin-page" id="adminMain" hidden>
+            <p class="eyebrow">RESTAURANT STAFF ONLY</p>
+            <h1 class="admin-page-title">Admin Panel</h1>
+            <p class="admin-page-subtitle">Products, orders, messages and reservations are stored in this browser's local storage — no server required.</p>
+
+            <div class="admin-user" id="adminUser"></div>
+
+            <div class="admin-tabs">
+                <button class="active" data-tab="products">Products</button>
+                <button data-tab="orders">Orders <span class="tab-badge" id="ordBadge" hidden></span></button>
+                <button data-tab="messages">Messages</button>
+                <button data-tab="reservations">Reservations</button>
+            </div>
+
+            <div id="panelProducts" class="admin-layout">
+                <div class="admin-card">
+                    <h2>Add a product</h2>
+                    <div id="statusMsg" class="status-msg"></div>
+                    <form id="productForm" class="product-form">
+                        <div class="field">
+                            <label for="pName">Name</label>
+                            <input id="pName" placeholder="e.g. Chicken Tikka Pizza" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="field">
+                                <label for="pCat">Category</label>
+                                <select id="pCat">
+                                    <option>Pizza</option>
+                                    <option>Burger</option>
+                                    <option>Pasta</option>
+                                    <option>Chicken</option>
+                                    <option>Healthy</option>
+                                    <option>Dessert</option>
+                                    <option>Drinks</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label for="pPrice">Price (Rs.)</label>
+                                <input id="pPrice" type="number" min="0" placeholder="950" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="field">
+                                <label for="pRating">Rating (0–5)</label>
+                                <input id="pRating" type="number" min="0" max="5" step="0.1" placeholder="4.7">
+                            </div>
+                            <div class="field">
+                                <label for="pTag">Tag</label>
+                                <input id="pTag" placeholder="e.g. NEW">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="field">
+                                <label for="pSpice">Spice level (0–3)</label>
+                                <input id="pSpice" type="number" min="0" max="3" placeholder="1">
+                            </div>
+                            <div class="field">
+                                <label for="pTime">Prep time (min)</label>
+                                <input id="pTime" type="number" min="1" placeholder="20">
+                            </div>
+                        </div>
+                        <div class="checks">
+                            <label><input type="checkbox" id="pVeg"> Vegetarian</label>
+                            <label><input type="checkbox" id="pHalal" checked> Halal</label>
+                        </div>
+                        <div class="field">
+                            <label for="pDesc">Description</label>
+                            <textarea id="pDesc" rows="3" placeholder="Short, appetizing description"></textarea>
+                        </div>
+                        <div class="field">
+                            <label for="pImg">Image URL</label>
+                            <input id="pImg" placeholder="https://..." required>
+                        </div>
+                        <button class="btn primary big-add" type="submit">Add Product</button>
+                    </form>
+                </div>
+
+                <div class="admin-card">
+                    <h2>Current menu</h2>
+                    <table class="admin-table" id="productTable">
+                        <thead>
+                            <tr><th></th><th>Name</th><th>Category</th><th>Price</th><th>Diet</th><th></th></tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="panelOrders" class="admin-card" style="display:none">
+                <div class="orders-head">
+                    <h2>Customer orders</h2>
+                    <select id="orderFilter" aria-label="Filter orders">
+                        <option value="active">Active orders</option>
+                        <option value="all">All orders</option>
+                        <option value="delivered">Delivered</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                </div>
+                <div id="ordList"></div>
+            </div>
+
+            <div id="panelMessages" class="admin-card" style="display:none">
+                <h2>Contact messages</h2>
+                <div id="msgList"></div>
+            </div>
+
+            <div id="panelReservations" class="admin-card" style="display:none">
+                <h2>Table reservations</h2>
+                <div id="resList"></div>
+            </div>
+        </main>
+        <footer>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a class="logo" href="index.html">Taste<span>Bites</span></a>
+                    <p>Chef-crafted favorites made fresh daily — from a quick weekday lunch to a weekend family feast.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="WhatsApp">💬</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="reservations.html">Reservations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="cart.html">Your cart</a></li>
+                        <li><a href="admin.html">Staff admin</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-hours">
+                    <h4>Opening hours</h4>
+                    <div><span>Mon – Sun</span><span>11 AM – 11 PM</span></div>
+                    <div><span>Delivery</span><span>~30 min avg</span></div>
+                    <p style="margin-top:14px">📍 Shahrah-e-Faisal Road, Karachi</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Taste Bites</span>
+                <span>Fresh food • Happy moments</span>
+            </div>
+        </footer>
+        <script src="js/foods.js"></script>
+        <script src="js/auth.js"></script>
+        <script src="js/orders.js"></script>
+        <script src="js/admin.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>

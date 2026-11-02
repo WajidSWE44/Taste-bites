@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Food Details | Taste Bites</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+        
+    </head>
+    <body>
+        <header class="nav">
+            <a class="logo" href="index.html"><img class="logo-image" src="images/logo.png" alt="Taste Bites Logo">Taste<span>Bites</span></a>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a class="active" href="menu.html">Menu</a>
+                <a href="about.html">About</a>
+                <a href="reservations.html">Reservations</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="nav-right">
+                <a class="cart-link" href="cart.html">🛒 <span>Cart</span> <b id="cartCount">0</b></a>
+                <button class="theme" id="themeToggle">☾</button>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </header>
+        <main class="details" id="details"></main>
+        <footer>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a class="logo" href="index.html">Taste<span>Bites</span></a>
+                    <p>Chef-crafted favorites made fresh daily — from a quick weekday lunch to a weekend family feast.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="WhatsApp">💬</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="reservations.html">Reservations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="cart.html">Your cart</a></li>
+                        <li><a href="admin.html">Staff admin</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-hours">
+                    <h4>Opening hours</h4>
+                    <div><span>Mon – Sun</span><span>11 AM – 11 PM</span></div>
+                    <div><span>Delivery</span><span>~30 min avg</span></div>
+                    <p style="margin-top:14px">📍 Shahrah-e-Faisal Road, Karachi</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Taste Bites</span>
+                <span>Fresh food • Happy moments</span>
+            </div>
+        </footer>
+        <script src="js/foods.js"></script>
+        <script src="js/auth.js"></script>
+        <script src="js/details.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>

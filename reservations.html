@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reservations | Taste Bites</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    </head>
+    <body>
+        <header class="nav">
+            <a class="logo" href="index.html"><img class="logo-image" src="images/logo.png" alt="Taste Bites Logo">Taste<span>Bites</span></a>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="about.html">About</a>
+                <a class="active" href="reservations.html">Reservations</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="nav-right">
+                <a class="cart-link" href="cart.html">🛒 <span>Cart</span> <b id="cartCount">0</b></a>
+                <button class="theme" id="themeToggle">☾</button>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </header>
+        <main class="simple-page">
+            <p class="eyebrow">BOOK A TABLE</p>
+            <h1>Save your <em>seat.</em></h1>
+            <p>Pick a date and time and we'll have a table ready for you. Have a question first? Try <a class="text-btn" href="contact.html">Contact</a> instead.</p>
+
+            <div class="contact-layout">
+                <div class="contact-info">
+                    <h2>Good to know</h2>
+                    <div class="info-row"><span class="icon">📍</span><span>Shahrah-e-Faisal Road, Karachi, Sindh, Pakistan</span></div>
+                    <div class="info-row"><span class="icon">🕒</span><span>Reservations open daily, 11:00 AM – 11:00 PM</span></div>
+                    <div class="info-row"><span class="icon">📞</span><span>Call +92 300 1234567 for parties of 8+</span></div>
+                    <div class="res-note">Tables are held for 15 minutes past the reserved time. Need to cancel or change your booking? Just call us — no confirmation email required for this demo.</div>
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=85" alt="Reserved table set for dinner" loading="lazy">
+                </div>
+
+                <form class="contact-form" id="reservationForm" novalidate>
+                    <div id="statusMsg" class="status-msg"></div>
+                    <div class="form-row">
+                        <div class="field">
+                            <label for="rName">Full name</label>
+                            <input id="rName" name="name" type="text" placeholder="Your name" required>
+                            <small class="field-error"></small>
+                        </div>
+                        <div class="field">
+                            <label for="rPhone">Phone</label>
+                            <input id="rPhone" name="phone" type="tel" placeholder="+92 3XX XXXXXXX" required>
+                            <small class="field-error"></small>
+                        </div>
+                    </div>
+                    <div class="form-row-3">
+                        <div class="field">
+                            <label for="rDate">Date</label>
+                            <input id="rDate" name="date" type="date" required>
+                            <small class="field-error"></small>
+                        </div>
+                        <div class="field">
+                            <label for="rTime">Time</label>
+                            <input id="rTime" name="time" type="time" required>
+                            <small class="field-error"></small>
+                        </div>
+                        <div class="field">
+                            <label for="rGuests">Guests</label>
+                            <input id="rGuests" name="guests" type="number" min="1" max="20" placeholder="2" required>
+                            <small class="field-error"></small>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="rNotes">Special requests <span style="font-weight:400">(optional)</span></label>
+                        <textarea id="rNotes" name="notes" rows="4" placeholder="Window seat, high chair, allergies..."></textarea>
+                    </div>
+                    <button class="btn primary big-add" type="submit">Reserve Table</button>
+                </form>
+            </div>
+        </main>
+        <footer>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a class="logo" href="index.html">Taste<span>Bites</span></a>
+                    <p>Chef-crafted favorites made fresh daily — from a quick weekday lunch to a weekend family feast.</p>
+<div class="footer-social">
+    <a href="#" aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+    </a>
+
+    <a href="#" aria-label="Facebook">
+        <i class="fa-brands fa-facebook"></i>
+    </a>
+
+    <a href="#" aria-label="WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+</div>
+                </div>
+                <div class="footer-col">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="reservations.html">Reservations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="cart.html">Your cart</a></li>
+                        <li><a href="admin.html">Staff admin</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-hours">
+                    <h4>Opening hours</h4>
+                    <div><span>Mon – Sun</span><span>11 AM – 11 PM</span></div>
+                    <div><span>Delivery</span><span>~30 min avg</span></div>
+                    <p style="margin-top:14px">📍 Shahrah-e-Faisal Road, Karachi</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Taste Bites</span>
+                <span>Fresh food • Happy moments</span>
+            </div>
+        </footer>
+        <script src="js/foods.js"></script>
+        <script src="js/auth.js"></script>
+        <script src="js/reservations.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>
